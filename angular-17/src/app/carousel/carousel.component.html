@@ -1,0 +1,18 @@
+<!-- Image Count -->
+<span>{{ displayIndex }}/{{ totalImageCount }}</span>
+
+<!-- Embla image carousel -->
+<div class="embla" emblaCarousel [options]="options" (emblaChange)="onImageChanged()" [subscribeToEvents]="eventSubscriptions">
+  <div class="embla__container">
+    @for (galleryItem of galleryData; track $index) {
+      <div class="embla__slide">
+        <img
+          ngSrc="{{ galleryData[$index].url }}"
+          alt="{{ galleryData[$index].alt }}"
+          [width]="galleryItem.width"
+          [height]="galleryItem.height"
+        />
+      </div>
+    }
+  </div>
+</div>
